@@ -4,6 +4,10 @@ from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import gettext_lazy as _
 from .models import CustomUserModel
 
+admin.site.site_title = _("AcadamicFolio")  # Title in the browser tab
+admin.site.site_header = _("AcadamicFolio")  # Header at the top of the admin page
+admin.site.index_title = _("AcadamicFolio") 
+
 # Register your models here.
 class UserAdminCustom(UserAdmin):
     fieldsets = (

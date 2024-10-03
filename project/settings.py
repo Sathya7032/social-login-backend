@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     # local app
     "app",
     'django_ckeditor_5',
+    
 ]
 
 MIDDLEWARE = [
@@ -357,6 +358,7 @@ CKEDITOR_5_CONFIGS = {
         }
     }
 }
+
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 

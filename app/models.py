@@ -32,6 +32,7 @@ class ProgrammingLanguage(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='programming_languages/', blank=True, null=True)
     url = models.CharField(max_length=200,unique=True)
+    user = models.ForeignKey(CustomUserModel, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -88,6 +89,7 @@ class Topics(models.Model):
     topic = models.CharField(max_length=100)
     language = models.ForeignKey(ProgrammingLanguage,on_delete=models.CASCADE)
     url = models.CharField(max_length=200,unique=True)
+    user = models.ForeignKey(CustomUserModel, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.topic
@@ -99,6 +101,7 @@ class CodeSnippet(models.Model):
     content = models.TextField()
     topic = models.ForeignKey(Topics,on_delete= models.CASCADE)
     url = models.CharField(max_length=200,unique=True)
+    user = models.ForeignKey(CustomUserModel, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
@@ -111,6 +114,7 @@ class Short(models.Model):
     views = models.PositiveIntegerField(default=0)
     android_link = models.CharField(max_length=200,default=1)
     category = models.ForeignKey(ProgrammingLanguage, on_delete=models.CASCADE,default=1)
+    user = models.ForeignKey(CustomUserModel, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
